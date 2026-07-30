@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="src/Eclipsonix.Client/Eclipsonix.Client/App.axaml" value="src/Eclipsonix.Client/Eclipsonix.Client.Desktop/Eclipsonix.Client.Desktop.csproj" />
+        <entry key="src/Eclipsonix.Client/Eclipsonix.Client/Controls/MainContent.axaml" value="src/Eclipsonix.Client/Eclipsonix.Client.Desktop/Eclipsonix.Client.Desktop.csproj" />
+        <entry key="src/Eclipsonix.Client/Eclipsonix.Client/Controls/SystemDecoration.axaml" value="src/Eclipsonix.Client/Eclipsonix.Client.Desktop/Eclipsonix.Client.Desktop.csproj" />
+        <entry key="src/Eclipsonix.Client/Eclipsonix.Client/Views/MainView.axaml" value="src/Eclipsonix.Client/Eclipsonix.Client.Desktop/Eclipsonix.Client.Desktop.csproj" />
+        <entry key="src/Eclipsonix.Client/Eclipsonix.Client/Views/MainWindow.axaml" value="src/Eclipsonix.Client/Eclipsonix.Client.Desktop/Eclipsonix.Client.Desktop.csproj" />
+      </map>
+    </option>
+  </component>
+</project>

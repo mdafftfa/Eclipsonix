@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eclipsonix.Service", "src\Eclipsonix.Service\Eclipsonix.Service.csproj", "{4B0E457C-A201-4F16-8914-FB80EFCD7885}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eclipsonix.Client", "src\Eclipsonix.Client\Eclipsonix.Client\Eclipsonix.Client.csproj", "{8D50656F-ED80-4A14-BDA7-3D27151352A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eclipsonix.Client.Desktop", "src\Eclipsonix.Client\Eclipsonix.Client.Desktop\Eclipsonix.Client.Desktop.csproj", "{C466C028-2553-4A81-B08F-8260F6B5AD22}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4B0E457C-A201-4F16-8914-FB80EFCD7885}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B0E457C-A201-4F16-8914-FB80EFCD7885}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B0E457C-A201-4F16-8914-FB80EFCD7885}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B0E457C-A201-4F16-8914-FB80EFCD7885}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D50656F-ED80-4A14-BDA7-3D27151352A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D50656F-ED80-4A14-BDA7-3D27151352A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D50656F-ED80-4A14-BDA7-3D27151352A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D50656F-ED80-4A14-BDA7-3D27151352A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C466C028-2553-4A81-B08F-8260F6B5AD22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C466C028-2553-4A81-B08F-8260F6B5AD22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C466C028-2553-4A81-B08F-8260F6B5AD22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C466C028-2553-4A81-B08F-8260F6B5AD22}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

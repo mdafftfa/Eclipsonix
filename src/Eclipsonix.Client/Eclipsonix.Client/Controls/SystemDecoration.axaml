@@ -1,0 +1,41 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Eclipsonix.Client.Controls.SystemDecoration">
+        <Border Background="#191919" Padding="6" Grid.Row="0" BorderThickness="0,0,0,1" BorderBrush="#555" PointerPressed="TitleBar_PointerPressed">
+            <Grid ColumnDefinitions="Auto,*,Auto" VerticalAlignment="Center">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Grid.Column="0">
+                        <Image Height="20" Width="20" Source="../Assets/eclipsonix-logo.png" />
+                        <TextBlock Text="Eclipsonix" FontSize="14" FontWeight="Light" Foreground="White" VerticalAlignment="Center" Margin="8,0,0,0"/>
+                </StackPanel>
+        
+                
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="2" Spacing="6">
+                        <Button Click="MinimizeButton_Click" Width="36" Height="28" Background="Transparent" Foreground="White" BorderThickness="0" ToolTip.Tip="Minimize">
+                                <Rectangle Width="25" Height="25" Fill="White">
+                                        <Rectangle.OpacityMask>
+                                                <ImageBrush Source="../Assets/Icons/minimize-icon.png" Stretch="Uniform"/>
+                                        </Rectangle.OpacityMask>
+                                </Rectangle>
+                        </Button>
+        
+                        <Button Click="CloseButton_Click" Width="36" Height="28" Background="Transparent" Foreground="White" BorderThickness="0" ToolTip.Tip="Close">
+                                <Button.Styles>
+                                        <Style Selector="Button:pointerover /template/ ContentPresenter">
+                                                <Setter Property="Background" Value="#E81123"/>
+                                        </Style>
+                                </Button.Styles>
+        
+                                <Rectangle Width="25" Height="25" Fill="White">
+                                        <Rectangle.OpacityMask>
+                                                <ImageBrush Source="../Assets/Icons/close-icon.png" Stretch="Uniform"/>
+                                        </Rectangle.OpacityMask>
+                                </Rectangle>
+                        </Button>
+                </StackPanel>
+            </Grid>
+    </Border>
+    
+</UserControl>

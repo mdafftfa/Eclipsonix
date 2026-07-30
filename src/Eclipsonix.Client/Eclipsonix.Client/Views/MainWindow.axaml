@@ -1,0 +1,24 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Eclipsonix.Client.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="clr-namespace:Eclipsonix.Client.Views"
+        xmlns:controls="using:Eclipsonix.Client.Controls"
+        mc:Ignorable="d"
+        SystemDecorations="None"
+        x:Class="Eclipsonix.Client.Views.MainWindow"
+        Width="520"
+        Height="700"
+        CanResize="false"
+        Icon="/Assets/eclipsonix-logo.ico"
+        Title="Eclipsonix">
+        
+    <Grid Background="#2D2D30" RowDefinitions="Auto,*">
+        <controls:SystemDecoration />
+        
+        <!-- Main Content dipasang di Row 1 -->
+        <controls:MainContent Grid.Row="1" />
+    </Grid>
+    
+</Window>

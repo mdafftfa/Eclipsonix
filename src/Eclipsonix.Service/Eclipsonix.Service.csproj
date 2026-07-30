@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <PublishAot>true</PublishAot>
+        <ImplicitUsings>false</ImplicitUsings>
+        <UserSecretsId>dotnet-Eclipsonix.Service-17d4c621-9d83-44be-b202-251751397e3d</UserSecretsId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="DiscordRichPresence" Version="1.6.1.70" />
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.10" />
+        <PackageReference Include="Microsoft.Extensions.Hosting.WindowsServices" Version="10.0.10" />
+    </ItemGroup>
+</Project>
