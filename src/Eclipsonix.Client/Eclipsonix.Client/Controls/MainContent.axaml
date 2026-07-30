@@ -2,11 +2,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             
+             xmlns:local="using:Eclipsonix.Client.Controls"
+             x:DataType="local:MainContent"
+             
              mc:Ignorable="d" d:DesignWidth="520" d:DesignHeight="650"
-             x:Class="Eclipsonix.Client.Controls.MainContent">
+             x:Class="Eclipsonix.Client.Controls.MainContent"
+             >
     
     <ScrollViewer VerticalScrollBarVisibility="Auto">
-        <StackPanel Margin="24" Spacing="20">
+        <StackPanel Margin="24" Spacing="24">
             
             <!-- ============================== -->
             <!-- 1. HEADER SECTION              -->
@@ -33,19 +38,20 @@
                                MaxWidth="300"/>
                 </StackPanel>
             </StackPanel>
-
+            
+            <Separator Background="#3E3E42" Height="1" Margin="8,0"/>
+            
             <!-- ============================== -->
             <!-- 2. MAIN SECTION (Preview & Editor) -->
             <!-- ============================== -->
-            <Border Background="#1E1E1E" 
-                    CornerRadius="12" 
-                    Padding="20" 
-                    BorderBrush="#3E3E42" 
-                    BorderThickness="1">
-                
-                <StackPanel Spacing="20">
+            <StackPanel Spacing="24">
+                <!-- Sisi Atas: PREVIEW (DENGAN BACKGROUND) -->
+                <Border Background="#1E1E1E" 
+                        CornerRadius="12" 
+                        Padding="20" 
+                        BorderBrush="#3E3E42"
+                        BorderThickness="1">
                     
-                    <!-- Sisi Atas: PREVIEW -->
                     <StackPanel Spacing="8">
                         <TextBlock Text="PLAYING A GAME" FontSize="14" FontWeight="SemiBold" Foreground="#FFF"/>
                         <!-- Discord Rich Presence Card -->
@@ -62,28 +68,33 @@
                                 <Grid Grid.Column="0" Width="72" Height="72" VerticalAlignment="Center" Margin="0,0,16,0">
                                     
                                     <!-- Large Icon (Contoh Map de_mirage) -->
-                                    <Border CornerRadius="8" Background="#4A4D53">
-                                        <!-- Ini bisa diganti Image nantinya -->
-                                        <TextBlock Text="MAP" FontSize="14" FontWeight="Bold" Foreground="#888" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    <Border CornerRadius="8" ClipToBounds="True">
+                                        <Border.Background>
+                                            <ImageBrush Source="avares://Eclipsonix.Client/Assets/cs2-logo.png" 
+                                                        Stretch="UniformToFill"/>
+                                        </Border.Background>
                                     </Border>
                                     
-                                    <!-- Small Icon (Pojok Kanan Bawah) dengan Cutout border (warna sama dengan background card) -->
-                                    <Border Width="28" Height="28" 
-                                            CornerRadius="14" 
-                                            Background="#2B2D31" 
-                                            HorizontalAlignment="Right" 
-                                            VerticalAlignment="Bottom" 
-                                            Margin="0,0,-6,-6">
-                                        
-                                        <!-- Icon CS2/Team di dalamnya -->
-                                        <Border Width="22" Height="22" 
-                                                CornerRadius="11" 
-                                                Background="#E8A838" 
-                                                HorizontalAlignment="Center" 
-                                                VerticalAlignment="Center">
-                                            <TextBlock Text="T" FontSize="12" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                        </Border>
-                                    </Border>
+                                    <!-- Small Icon Wrapper (Ring Luar Discord) -->
+                                    <!-- <Border Width="28" Height="28"  -->
+                                    <!--         CornerRadius="14"  -->
+                                    <!--         Background="#2B2D31"  -->
+                                    <!--         HorizontalAlignment="Right"  -->
+                                    <!--         VerticalAlignment="Bottom"  -->
+                                    <!--         Margin="0,0,-6,-6"> -->
+                                    <!-- -->
+                                    <!--     ~1~ Small Icon Gambar Lingkaran @1@ -->
+                                    <!--     <Border Width="22" Height="22"  -->
+                                    <!--             CornerRadius="11"  -->
+                                    <!--             ClipToBounds="True" -->
+                                    <!--             HorizontalAlignment="Center"  -->
+                                    <!--             VerticalAlignment="Center"> -->
+                                    <!--         <Border.Background> -->
+                                    <!--             <ImageBrush Source="avares://Eclipsonix.Client/Assets/Teams/terorist.png"  -->
+                                    <!--                         Stretch="{x:Static Stretch.UniformToFill}"/> -->
+                                    <!--         </Border.Background> -->
+                                    <!--     </Border> -->
+                                    <!-- </Border> -->
                                 </Grid>
 
                                 <!-- Kanan: Teks Status -->
@@ -94,125 +105,149 @@
                                                FontSize="14" 
                                                Foreground="#F2F3F5"/>
                                     
-                                    <!-- Details (Map Name) -->
-                                    <TextBlock Text="Competitive - Mirage" 
+                                    <!-- Details (First Line) -->
+                                    <TextBlock Text="Casual - Lobby" 
                                                FontSize="13" 
                                                Foreground="#B5BAC1"/>
                                     
-                                    <!-- State (Team / Score) -->
-                                    <TextBlock Text="Counter Terorist - (5) : (10)" 
+                                    <!-- State (Second Line) -->
+                                    <TextBlock Text="In Main Menu" 
                                                FontSize="13" 
                                                Foreground="#B5BAC1"/>
                                     
-                                    <!-- Time Elapsed -->
-                                    <TextBlock Text="12:45 elapsed" 
-                                               FontSize="13" 
-                                               Foreground="#B5BAC1"/>
+                                    <!-- Time Elapsed dengan Gamepad Icon -->
+                                    <StackPanel Orientation="Horizontal" Spacing="6" VerticalAlignment="Center">
+                                        <PathIcon Data="m10.667 6.134l-.502-.355A4.24 4.24 0 0 0 7.715 5h-.612c-.405 0-.813.025-1.194.16c-2.383.846-4.022 3.935-3.903 10.943c.024 1.412.354 2.972 1.628 3.581A3.2 3.2 0 0 0 5.027 20a2.74 2.74 0 0 0 1.53-.437c.41-.268.77-.616 1.13-.964c.444-.43.888-.86 1.424-1.138a4.1 4.1 0 0 1 1.89-.461H13c.658 0 1.306.158 1.89.46c.536.279.98.709 1.425 1.139c.36.348.72.696 1.128.964c.39.256.895.437 1.531.437a3.2 3.2 0 0 0 1.393-.316c1.274-.609 1.604-2.17 1.628-3.581c.119-7.008-1.52-10.097-3.903-10.942C17.71 5.025 17.3 5 16.897 5h-.612a4.24 4.24 0 0 0-2.45.78l-.502.354a2.31 2.31 0 0 1-2.666 0M16.75 9a.75.75 0 1 1 0 1.5a.75.75 0 0 1 0-1.5m-9.25.25a.75.75 0 0 1 .75.75v.75H9a.75.75 0 0 1 0 1.5h-.75V13a.75.75 0 0 1-1.5 0v-.75H6a.75.75 0 0 1 0-1.5h.75V10a.75.75 0 0 1 .75-.75m11.5 2a.75.75 0 1 1-1.5 0a.75.75 0 0 1 1.5 0m-3.75.75a.75.75 0 1 0 0-1.5a.75.75 0 0 0 0 1.5m2.25.75a.75.75 0 1 0-1.5 0a.75.75 0 0 0 1.5 0" 
+                                                  Foreground="#32CD32" 
+                                                  Width="16" 
+                                                  Height="16" 
+                                                  VerticalAlignment="Center"/>
+
+                                        <TextBlock Text="{Binding ElapsedTimeFormatted}" 
+                                                   FontSize="13" 
+                                                   FontWeight="Medium"
+                                                   Foreground="#32CD32"
+                                                   VerticalAlignment="Center"/>
+                                    </StackPanel>
                                 </StackPanel>
                             </Grid>
                         </Border>
                     </StackPanel>
+                </Border>
 
-                    <Separator Background="#3E3E42" Height="1"/>
-
-                    <!-- Sisi Bawah: Editor Kiri & Kanan -->
-                    <StackPanel Spacing="16">
-                        <Grid ColumnDefinitions="*,*">
-                            
-                            <!-- Kolom Kiri: Large Icon -->
-                            <StackPanel Grid.Column="0" Spacing="12" Margin="0,0,10,0">
-                                <StackPanel Spacing="4">
-                                    <TextBlock Text="Large Icon" FontSize="12" Foreground="#AAA"/>
-                                    <ComboBox SelectedIndex="2" HorizontalAlignment="Stretch">
-                                        <ComboBox.Styles>
-                                            <Style Selector="ComboBoxItem:selected /template/ ContentPresenter#PART_ContentPresenter">
-                                                <Setter Property="Background" Value="#FF7518"/>
-                                                <Setter Property="BorderBrush" Value="#FF7518"/>
-                                            </Style>
-                                        </ComboBox.Styles>
-                                        <ComboBoxItem Content="Empty"/>
-                                        <ComboBoxItem Content="Application (logo cs2)"/>
-                                        <ComboBoxItem Content="Map"/>
-                                        <ComboBoxItem Content="Team"/>
-                                    </ComboBox>
-                                </StackPanel>
-                                
-                                <StackPanel Spacing="4">
-                                    <TextBlock Text="Large Icon Text" FontSize="12" Foreground="#AAA"/>
-                                    <ComboBox SelectedIndex="2" HorizontalAlignment="Stretch">
-                                        <ComboBox.Styles>
-                                            <Style Selector="ComboBoxItem:selected /template/ ContentPresenter#PART_ContentPresenter">
-                                                <Setter Property="Background" Value="#FF7518"/>
-                                                <Setter Property="BorderBrush" Value="#FF7518"/>
-                                            </Style>
-                                        </ComboBox.Styles>
-                                        <ComboBoxItem Content="Empty"/>
-                                        <ComboBoxItem Content="Application Name"/>
-                                        <ComboBoxItem Content="Map Name"/>
-                                        <ComboBoxItem Content="Team Name"/>
-                                    </ComboBox>
-                                </StackPanel>
-                            </StackPanel>
-
-                            <!-- Kolom Kanan: Small Icon -->
-                            <StackPanel Grid.Column="1" Spacing="12" Margin="10,0,0,0">
-                                <StackPanel Spacing="4">
-                                    <TextBlock Text="Small Icon" FontSize="12" Foreground="#AAA"/>
-                                    <ComboBox SelectedIndex="3" HorizontalAlignment="Stretch">
-                                        <ComboBox.Styles>
-                                            <Style Selector="ComboBoxItem:selected /template/ ContentPresenter#PART_ContentPresenter">
-                                                <Setter Property="Background" Value="#FF7518"/>
-                                                <Setter Property="BorderBrush" Value="#FF7518"/>
-                                            </Style>
-                                        </ComboBox.Styles>
-                                        <ComboBoxItem Content="Empty"/>
-                                        <ComboBoxItem Content="Application (logo cs2)"/>
-                                        <ComboBoxItem Content="Map"/>
-                                        <ComboBoxItem Content="Team"/>
-                                    </ComboBox>
-                                </StackPanel>
-
-                                <StackPanel Spacing="4">
-                                    <TextBlock Text="Small Icon Text" FontSize="12" Foreground="#AAA"/>
-                                    <ComboBox SelectedIndex="3" HorizontalAlignment="Stretch">
-                                        <ComboBox.Styles>
-                                            <Style Selector="ComboBoxItem:selected /template/ ContentPresenter#PART_ContentPresenter">
-                                                <Setter Property="Background" Value="#FF7518"/>
-                                                <Setter Property="BorderBrush" Value="#FF7518"/>
-                                            </Style>
-                                        </ComboBox.Styles>
-                                        <ComboBoxItem Content="Empty"/>
-                                        <ComboBoxItem Content="Application Name"/>
-                                        <ComboBoxItem Content="Map Name"/>
-                                        <ComboBoxItem Content="Team Name"/>
-                                    </ComboBox>
-                                </StackPanel>
-                            </StackPanel>
-                        </Grid>
-                        
-                        <CheckBox Content="Enable Rich Presence" 
-                                  IsChecked="True" 
-                                  Foreground="White" 
-                                  FontWeight="Medium" 
-                                  Margin="0,4,0,0">
-                            <CheckBox.Styles>
-                                <!-- Warna latar & border kotak saat tercentang (Checked) -->
-                                <Style Selector="CheckBox:checked /template/ Border#NormalRectangle">
-                                    <Setter Property="Background" Value="#FF7518"/>
-                                    <Setter Property="BorderBrush" Value="#FF7518"/>
-                                </Style>
-                            </CheckBox.Styles>
-                        </CheckBox>
-                    </StackPanel>
+                <!-- Sisi Bawah: EDITOR (TANPA BACKGROUND) -->
+                <StackPanel Spacing="16" Margin="8,0">
                     
+                    <!-- Style Global untuk ComboBox di area Editor -->
+                    <StackPanel.Styles>
+                        <Style Selector="ComboBoxItem:selected /template/ ContentPresenter#PART_ContentPresenter">
+                            <Setter Property="Background" Value="#FF7518"/>
+                            <Setter Property="BorderBrush" Value="#FF7518"/>
+                        </Style>
+                    </StackPanel.Styles>
+
+                    <!-- BARIS 1: FIRST LINE & SECOND LINE -->
+                    <Grid ColumnDefinitions="*,*">
+                        <!-- First Line (Details) -->
+                        <StackPanel Grid.Column="0" Spacing="4" Margin="0,0,10,0">
+                            <TextBlock Text="First Line" FontSize="12" Foreground="#AAA"/>
+                            <ComboBox SelectedIndex="1" BorderBrush="#777" HorizontalAlignment="Stretch">
+                                <ComboBoxItem Content="Empty"/>
+                                <ComboBoxItem Content="Game Mode"/>
+                                <ComboBoxItem Content="Map"/>
+                                <ComboBoxItem Content="Game Mode - Map"/>
+                                <ComboBoxItem Content="Team Name"/>
+                                <ComboBoxItem Content="Score"/>
+                                <ComboBoxItem Content="Team Name - Score"/>
+                            </ComboBox>
+                        </StackPanel>
+
+                        <!-- Second Line (State) -->
+                        <StackPanel Grid.Column="1" Spacing="4" Margin="10,0,0,0">
+                            <TextBlock Text="Second Line" FontSize="12" Foreground="#AAA"/>
+                            <ComboBox SelectedIndex="2" BorderBrush="#777" HorizontalAlignment="Stretch">
+                                <ComboBoxItem Content="Empty"/>
+                                <ComboBoxItem Content="Game Mode"/>
+                                <ComboBoxItem Content="Map"/>
+                                <ComboBoxItem Content="Game Mode - Map"/>
+                                <ComboBoxItem Content="Team Name"/>
+                                <ComboBoxItem Content="Score"/>
+                                <ComboBoxItem Content="Team Name - Score"/>
+                            </ComboBox>
+                        </StackPanel>
+                    </Grid>
+
+                    <!-- BARIS 2: LARGE ICON & SMALL ICON -->
+                    <Grid ColumnDefinitions="*,*">
+                        <!-- Kolom Kiri: Large Icon -->
+                        <StackPanel Grid.Column="0" Spacing="12" Margin="0,0,10,0">
+                            <StackPanel Spacing="4">
+                                <TextBlock Text="Large Icon" FontSize="12" Foreground="#AAA"/>
+                                <ComboBox SelectedIndex="2" BorderBrush="#777" HorizontalAlignment="Stretch">
+                                    <ComboBoxItem Content="Empty"/>
+                                    <ComboBoxItem Content="Application (logo cs2)"/>
+                                    <ComboBoxItem Content="Map"/>
+                                    <ComboBoxItem Content="Team"/>
+                                </ComboBox>
+                            </StackPanel>
+                            
+                            <StackPanel Spacing="4">
+                                <TextBlock Text="Small Icon Text" FontSize="12" Foreground="#AAA"/>
+                                <ComboBox SelectedIndex="3" BorderBrush="#777" HorizontalAlignment="Stretch">
+                                    <ComboBoxItem Content="Empty"/>
+                                    <ComboBoxItem Content="Application Name"/>
+                                    <ComboBoxItem Content="Map Name"/>
+                                    <ComboBoxItem Content="Team Name"/>
+                                </ComboBox>
+                            </StackPanel>
+                        </StackPanel>
+
+                        <!-- Kolom Kanan: Small Icon -->
+                        <StackPanel Grid.Column="1" Spacing="12" Margin="10,0,0,0">
+                            <StackPanel Spacing="4">
+                                <TextBlock Text="Small Icon" FontSize="12" Foreground="#AAA"/>
+                                <ComboBox SelectedIndex="3" BorderBrush="#777" HorizontalAlignment="Stretch">
+                                    <ComboBoxItem Content="Empty"/>
+                                    <ComboBoxItem Content="Application (logo cs2)"/>
+                                    <ComboBoxItem Content="Map"/>
+                                    <ComboBoxItem Content="Team"/>
+                                </ComboBox>
+                            </StackPanel>
+                            
+                            <StackPanel Spacing="4">
+                                <TextBlock Text="Large Icon Text" FontSize="12" Foreground="#AAA"/>
+                                <ComboBox SelectedIndex="2" BorderBrush="#777" HorizontalAlignment="Stretch">
+                                    <ComboBoxItem Content="Empty"/>
+                                    <ComboBoxItem Content="Application Name"/>
+                                    <ComboBoxItem Content="Map Name"/>
+                                    <ComboBoxItem Content="Team Name"/>
+                                </ComboBox>
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                    
+                    <!-- CheckBox Enable RPC -->
+                    <CheckBox Content="Enable Rich Presence" 
+                              IsChecked="True" 
+                              Foreground="White" 
+                              FontWeight="Medium" 
+                              Margin="0,4,0,0">
+                        <CheckBox.Styles>
+                            <Style Selector="CheckBox:checked /template/ Border#NormalRectangle">
+                                <Setter Property="Background" Value="#FF7518"/>
+                                <Setter Property="BorderBrush" Value="#FF7518"/>
+                            </Style>
+                        </CheckBox.Styles>
+                    </CheckBox>
                 </StackPanel>
-            </Border>
+                
+            </StackPanel>
 
             <!-- ============================== -->
             <!-- 3. FOOTER SECTION (Progress & Apply) -->
             <!-- ============================== -->
             <StackPanel Spacing="16">
-                <!-- Progress Bar & Text 95% -->
+                <!-- Progress Bar & Text 100% -->
                 <Grid ColumnDefinitions="*,Auto">
                     <ProgressBar Grid.Column="0" 
                                  Value="100" 
@@ -231,7 +266,7 @@
                         HorizontalContentAlignment="Center"
                         Width="250"
                         Foreground="White" 
-                        FontWeight="SemiBold"
+                        FontWeight="Medium"
                         BorderBrush="#777"
                         Background="#191919"
                         Height="50"

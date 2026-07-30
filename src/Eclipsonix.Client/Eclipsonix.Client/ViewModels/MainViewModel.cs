@@ -1,6 +1,6 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿namespace Eclipsonix.Client.ViewModels;
 
-namespace Eclipsonix.Client.ViewModels;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 public partial class MainViewModel : ViewModelBase
 {
